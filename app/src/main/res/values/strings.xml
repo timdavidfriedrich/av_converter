@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">avi_converter</string>
+    <string name="converter_screen_title">Coolpix L25 Converter</string>
+    <string name="convert_screen_select_files_label">Select .AVI files</string>
+    <string name="converter_screen_saved_to_gallery_label">✅ Saved to Gallery!</string>
+    <string name="converter_screen_error_label">❌ Error: %1$s</string>
+    <string name="converter_screen_convert_other_files_label">Convert other files</string>
+    <string name="converter_screen_try_again_label">Try Again</string>
+    <string name="converter_screen_converting_file_of_label">Converting file %1$d of %2$d</string>
+</resources>
