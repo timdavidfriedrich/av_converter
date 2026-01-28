@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "de.timdavidfriedrich.avi_converter"
+    namespace = "de.timdavidfriedrich.av_converter"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -12,7 +12,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "de.timdavidfriedrich.avi_converter"
+        applicationId = "de.timdavidfriedrich.av_converter"
         minSdk = 29
         targetSdk = 36
         versionCode = 1

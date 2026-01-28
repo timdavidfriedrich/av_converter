@@ -1,4 +1,4 @@
-package de.timdavidfriedrich.avi_converter.domain.entities
+package de.timdavidfriedrich.av_converter.domain.entities
 
 import android.media.MediaCodecInfo
 import androidx.media3.common.MimeTypes

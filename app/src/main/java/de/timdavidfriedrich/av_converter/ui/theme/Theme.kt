@@ -1,4 +1,4 @@
-package de.timdavidfriedrich.avi_converter.ui.theme
+package de.timdavidfriedrich.av_converter.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -33,7 +33,7 @@ private val LightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun AviConverterTheme(
+fun AvConverterTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,

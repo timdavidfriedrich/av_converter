@@ -1,4 +1,4 @@
-package de.timdavidfriedrich.avi_converter.ui
+package de.timdavidfriedrich.av_converter.ui
 
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import de.timdavidfriedrich.avi_converter.R
+import de.timdavidfriedrich.av_converter.R
 
 @Composable
 fun ConverterScreen(

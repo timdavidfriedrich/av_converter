@@ -24,5 +24,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "avi_converter"
+rootProject.name = "av_converter"
 include(":app")

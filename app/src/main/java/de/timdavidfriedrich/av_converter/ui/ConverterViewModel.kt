@@ -1,14 +1,14 @@
-package de.timdavidfriedrich.avi_converter.ui
+package de.timdavidfriedrich.av_converter.ui
 
 import android.app.Application
 import android.content.Intent
 import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import de.timdavidfriedrich.avi_converter.domain.entities.ConverterPresets
-import de.timdavidfriedrich.avi_converter.domain.services.ConversionService
-import de.timdavidfriedrich.avi_converter.domain.services.ConversionStatus
-import de.timdavidfriedrich.avi_converter.domain.services.FileService
+import de.timdavidfriedrich.av_converter.domain.entities.ConverterPresets
+import de.timdavidfriedrich.av_converter.domain.services.ConversionService
+import de.timdavidfriedrich.av_converter.domain.services.ConversionStatus
+import de.timdavidfriedrich.av_converter.domain.services.FileService
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package de.timdavidfriedrich.avi_converter.ui.theme
+package de.timdavidfriedrich.av_converter.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

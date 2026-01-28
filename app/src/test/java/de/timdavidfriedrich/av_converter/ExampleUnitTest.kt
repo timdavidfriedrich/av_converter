@@ -1,4 +1,4 @@
-package de.timdavidfriedrich.avi_converter
+package de.timdavidfriedrich.av_converter
 
 import org.junit.Test
 

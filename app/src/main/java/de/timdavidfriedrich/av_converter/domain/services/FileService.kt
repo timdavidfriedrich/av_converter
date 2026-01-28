@@ -1,11 +1,11 @@
-package de.timdavidfriedrich.avi_converter.domain.services
+package de.timdavidfriedrich.av_converter.domain.services
 
 import android.content.ContentResolver
 import android.content.ContentValues
 import android.net.Uri
 import android.os.Environment
 import android.provider.MediaStore
-import de.timdavidfriedrich.avi_converter.domain.entities.ConverterConfig
+import de.timdavidfriedrich.av_converter.domain.entities.ConverterConfig
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.File

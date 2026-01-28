@@ -1,4 +1,4 @@
-package de.timdavidfriedrich.avi_converter.domain.services
+package de.timdavidfriedrich.av_converter.domain.services
 
 import android.content.Context
 import android.net.Uri
@@ -12,7 +12,7 @@ import androidx.media3.transformer.ExportResult
 import androidx.media3.transformer.ProgressHolder
 import androidx.media3.transformer.Transformer
 import androidx.media3.transformer.VideoEncoderSettings
-import de.timdavidfriedrich.avi_converter.domain.entities.ConverterConfig
+import de.timdavidfriedrich.av_converter.domain.entities.ConverterConfig
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.delay

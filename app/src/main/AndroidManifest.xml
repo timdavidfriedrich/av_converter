@@ -9,11 +9,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Avi_converter">
+        android:theme="@style/Theme.Av_converter">
         <activity
-            android:name=".MainActivity"
+            android:name="de.timdavidfriedrich.av_converter.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Avi_converter">
+            android:theme="@style/Theme.Av_converter">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

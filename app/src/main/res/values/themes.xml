@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Avi_converter" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Av_converter" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>

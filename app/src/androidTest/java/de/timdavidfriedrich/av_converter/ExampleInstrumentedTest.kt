@@ -1,4 +1,4 @@
-package de.timdavidfriedrich.avi_converter
+package de.timdavidfriedrich.av_converter
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("de.timdavidfriedrich.avi_converter", appContext.packageName)
+        assertEquals("de.timdavidfriedrich.av_converter", appContext.packageName)
     }
 }
