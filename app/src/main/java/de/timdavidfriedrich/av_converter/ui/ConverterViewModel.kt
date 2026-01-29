@@ -46,7 +46,8 @@ class ConverterViewModel(
                         Intent.FLAG_GRANT_READ_URI_PERMISSION,
                     )
                 } catch (e: Exception) {
-                    e.printStackTrace()
+                    _uiState.value = ConverterUiState.Error(e.message ?: "Unknown error")
+                    return@launch
                 }
             }
 
@@ -76,21 +77,29 @@ class ConverterViewModel(
                             }
 
                             is ConversionStatus.Completed -> {
-                                FileService.saveToGallery(
+                                val savedUri = FileService.saveToGallery(
                                     contentResolver = context.contentResolver,
                                     tempFile = tempFile,
                                     config = activeConfig,
                                 )
-                                successCount++
+                                if (savedUri != null) {
+                                    successCount++
+                                }
                             }
                         }
                     }
                 } catch (e: Exception) {
-                    e.printStackTrace()
+                    _uiState.value = ConverterUiState.Error(e.message ?: "Unknown error")
+                    return@launch
                 }
             }
 
-            _uiState.value = ConverterUiState.Success(successCount)
+            if (successCount > 0) {
+                _uiState.value = ConverterUiState.Success(successCount)
+            } else {
+                _uiState.value =
+                    ConverterUiState.Error("No files were converted, please try again.")
+            }
         }
     }
 

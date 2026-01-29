@@ -48,8 +48,8 @@ object FileService {
         val collection = MediaStore.Video.Media.getContentUri(MediaStore.VOLUME_EXTERNAL_PRIMARY)
         val itemUri = contentResolver.insert(collection, contentValues)
 
-        itemUri?.let { uri ->
-            try {
+        try {
+            itemUri?.let { uri ->
                 contentResolver.openOutputStream(uri)?.use { outputStream ->
                     FileInputStream(tempFile).use { inputStream ->
                         inputStream.copyTo(outputStream)
@@ -60,13 +60,13 @@ object FileService {
                 contentValues.put(MediaStore.Video.Media.IS_PENDING, 0)
                 contentResolver.update(uri, contentValues, null, null)
 
-                if (tempFile.exists()) tempFile.delete()
-
                 return@withContext uri
-            } catch (e: Exception) {
-                contentResolver.delete(uri, null, null)
-                e.printStackTrace()
             }
+        } catch (e: Exception) {
+            itemUri?.let { contentResolver.delete(it, null, null) }
+            e.printStackTrace()
+        } finally {
+            if (tempFile.exists()) tempFile.delete()
         }
 
         return@withContext null

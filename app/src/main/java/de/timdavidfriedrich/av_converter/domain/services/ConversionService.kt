@@ -60,7 +60,11 @@ object ConversionService {
                 exportResult: ExportResult,
                 exportException: ExportException,
             ) {
-                close(exportException)
+                if (exportException.errorCode == ExportException.ERROR_CODE_DECODING_FORMAT_UNSUPPORTED) {
+                    close(Exception("Input video format is not supported by this device."))
+                } else {
+                    close(exportException)
+                }
             }
         }
 
