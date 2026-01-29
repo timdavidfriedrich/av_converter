@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":ffmpeg_feature")
+
+
 pluginManagement {
     repositories {
         google {

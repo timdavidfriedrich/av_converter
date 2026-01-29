@@ -21,6 +21,15 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    packaging {
+        jniLibs {
+            // This forces Android to extract native libraries from the APK to disk
+            // upon installation. This bypasses the 16KB alignment requirement
+            // for zipped libs (which causes the crash).
+            useLegacyPackaging = true
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -37,6 +46,7 @@ android {
     buildFeatures {
         compose = true
     }
+    dynamicFeatures += setOf(":ffmpeg_feature")
 }
 
 dependencies {
@@ -63,4 +73,7 @@ dependencies {
     // File conversion
     implementation(libs.androidx.media3.common)
     implementation(libs.androidx.media3.transformer)
+
+    // Dynamic feature ffmpeg
+    implementation(libs.play.feature.delivery)
 }

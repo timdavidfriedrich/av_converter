@@ -4,9 +4,13 @@ import android.content.Context
 import android.net.Uri
 import androidx.annotation.OptIn
 import androidx.media3.common.MediaItem
+import androidx.media3.common.audio.AudioProcessor
 import androidx.media3.common.util.UnstableApi
+import androidx.media3.effect.Presentation
 import androidx.media3.transformer.Composition
 import androidx.media3.transformer.DefaultEncoderFactory
+import androidx.media3.transformer.EditedMediaItem
+import androidx.media3.transformer.Effects
 import androidx.media3.transformer.ExportException
 import androidx.media3.transformer.ExportResult
 import androidx.media3.transformer.ProgressHolder
@@ -39,10 +43,10 @@ object ConversionService {
     ): Flow<ConversionStatus> = callbackFlow {
 
         val videoSettings = VideoEncoderSettings.Builder()
-            .setBitrate(config.bitrate)
+            .setBitrate(config.videoBitrate)
             .setBitrateMode(config.bitrateMode)
             .setEncodingProfileLevel(config.profile, config.level)
-            .setiFrameIntervalSeconds(config.iFrameIntervalSeconds)
+            .setiFrameIntervalSeconds(config.keyframeInterval)
             .build()
 
         val encoderFactory = DefaultEncoderFactory.Builder(context)
@@ -68,6 +72,17 @@ object ConversionService {
             }
         }
 
+        val videoEffects = mutableListOf<androidx.media3.common.Effect>()
+        if (config.targetResolution.second != -1) {
+            videoEffects.add(Presentation.createForHeight(config.targetResolution.second))
+        }
+
+        val audioProcessors = mutableListOf<AudioProcessor>()
+
+        val editedMediaItem = EditedMediaItem.Builder(MediaItem.fromUri(inputUri))
+            .setEffects(Effects(audioProcessors, videoEffects))
+            .build()
+
         val transformer = Transformer.Builder(context)
             .setVideoMimeType(config.videoCodecMimeType)
             .setAudioMimeType(config.audioCodecMimeType)
@@ -75,7 +90,7 @@ object ConversionService {
             .addListener(listener)
             .build()
 
-        transformer.start(MediaItem.fromUri(inputUri), outputFile.absolutePath)
+        transformer.start(editedMediaItem, outputFile.absolutePath)
 
         val progressHolder = ProgressHolder()
         val progressJob = launch {
